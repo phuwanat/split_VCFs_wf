@@ -1,11 +1,11 @@
 version 1.0
 
-workflow sort_VCFs {
+workflow split_VCFs {
 
     meta {
-	author: "Shloka Negi edited by Phuwanat"
-        email: "shnegi@ucsc.edu"
-        description: "Sort VCF"
+	author: "Phuwanat Sakornsakolpat"
+        email: "phuwanat.sak@mahidol.edu"
+        description: "Split"
     }
 
      input {
@@ -13,7 +13,7 @@ workflow sort_VCFs {
     }
 
     scatter(this_file in vcf_files) {
-		call run_sorting { 
+		call run_splitting { 
 			input: vcf = this_file
 		}
 	}
@@ -24,7 +24,7 @@ workflow sort_VCFs {
 
 }
 
-task run_sorting {
+task run_splitting {
     input {
         File vcf
         Int memSizeGB = 8
