@@ -3,14 +3,14 @@ version 1.0
 workflow split_VCFs {
 
     meta {
-	author: "Phuwanat Sakornsakolpat"
+        author: "Phuwanat Sakornsakolpat"
         email: "phuwanat.sak@mahidol.edu"
         description: "Split"
     }
 
      input {
         File vcf
-	File tabix
+        File tabix
     }
 
     scatter(num in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,X]) {
@@ -28,7 +28,7 @@ workflow split_VCFs {
 task run_splitting {
     input {
         File vcf
-	File tabix
+        File tabix
         Int memSizeGB = 8
         Int threadCount = 2
         Int diskSizeGB = 5*round(size(vcf, "GB")) + 20
