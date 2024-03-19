@@ -20,7 +20,7 @@ workflow split_VCFs {
 	}
 
     output {
-        File splitted_vcf = run_splitting.out_file
+        Array[File] splitted_vcf = run_splitting.out_file
     }
 
 }
@@ -41,7 +41,7 @@ task run_splitting {
     >>>
 
     output {
-        File out_file = select_first(glob("*.chr*.vcf.gz"))
+        File out_file = select_first(glob("*.chr~{num}.vcf.gz"))
     }
 
     runtime {
