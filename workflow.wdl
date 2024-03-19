@@ -20,7 +20,7 @@ workflow split_VCFs {
 	}
 
     output {
-        Array[File] splitted_vcf = run_splitting.out_file
+        File splitted_vcf = run_splitting.out_file
     }
 
 }
